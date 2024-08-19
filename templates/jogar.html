@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        .letras-corretas {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .letras-erradas {
+            color: red;
+        }
+        form {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jogo da Forca</h1>
+    <div class="letras-corretas">
+        {{ ' '.join(jogo['letras_corretas']) }}
+    </div>
+    <div class="letras-erradas">
+        Letras erradas: {{ ' '.join(jogo['letras_erradas']) }}
+    </div>
+    <div>Tentativas restantes: {{ jogo['tentativas'] }}</div>
+    <form method="POST">
+        <input type="text" name="letra" maxlength="1" required>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
